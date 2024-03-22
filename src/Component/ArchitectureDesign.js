@@ -44,9 +44,7 @@ const ArchitectureDesign = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://3.108.65.255:3001/api/Architecture/formData');
-        const response = await axios.get('http://3.108.65.255:3001/api/Architecture/formData');
-        setFormData(response.data);
+        const response = await axios.get('https://web-production-0e28.up.railway.app/api/Architecture/formData');
       } catch (error) {
         console.error('Error fetching form data:', error);
       }
