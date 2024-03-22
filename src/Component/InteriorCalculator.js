@@ -25,6 +25,14 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
     Card,
     Grid,
     GridItem,
+    Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure ,
    } from '@chakra-ui/react';
    import { MinusIcon , AddIcon , CheckIcon }    from '@chakra-ui/icons'
    import essentials from './Images/essentials-desktop-1677569928-WCHBw.jpg'
@@ -77,7 +85,7 @@ useEffect(() => {
     return cleanup;
   }, [circle1Ref.current, circle2Ref.current]);
 
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const [formData, setFormData] = useState({
        bhk : '0' ,
       room : {
@@ -102,6 +110,31 @@ useEffect(() => {
   const [isNumberError, setIsNumberError] = useState(false);
   const [isPropertyName, setIsPropertyNameError] = useState(false);
   const [isCheckedError, setIsCheckedError] = useState(false);
+  const [bhk, setBhk] = useState("1 BHK");
+  const [first, setFirst] = useState({
+    price: "",
+    Type: "",
+    Modular: "",
+    Furniture: "",
+    Services: "" , 
+    Packages : ""
+  });
+  const [second, setSecond] = useState({
+    price: "",
+    Type: "",
+    Modular: "",
+    Furniture: "",
+    Services: "" ,
+  });
+  const [third, setThird] = useState({
+    price: "",
+    Type: "",
+    Modular: "",
+    Furniture: "",
+    Services: ""
+  });
+  
+  
 
   const handleRoomCountChange = (roomName, increment) => {
     console.log(typeof(roomName ))
@@ -155,6 +188,11 @@ useEffect(() => {
     setIndex(index + 1);
   };
 
+  const handleButtonPrevClick = () => {
+    setIndex(index - 1);
+  };
+
+
   
   const handleSubmit = async (e) => {
    
@@ -182,6 +220,728 @@ useEffect(() => {
   
       if (response.ok) {
         setIndex(index + 1);
+        if(formData.bhk === '0' ){ 
+           
+           if(formData.package ==="0"){
+            setFirst({
+              price: "₹6.39L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials",
+            })
+            setSecond({
+              price: "₹7.92L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium" ,
+            })
+            setThird({
+              price: "₹10.89L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" , 
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹7.92L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹6.39L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹10.89L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹10.89L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹6.39L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹7.92L*",
+              Type: "1 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+
+          }
+        if(formData.bhk ===  '1') { 
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '2')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹22.99L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹13.56L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹16.93L*",
+              Type: "2 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '3')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '4')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "3 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '5')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '6')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "4 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '7')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
+        if(formData.bhk === '8')  {
+          if(formData.package ==="0"){
+            setFirst({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setSecond({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "1" ){
+            setFirst({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+           }
+           else if(formData.package === "2"){
+            setFirst({
+              price: "₹30.51L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BWP, Glass PU Finish, Additional Accessories), Modular Wardrobe (2-Door Swing, HDF/HMR Material, Acrylic finish, Additional Accessories), High-End Vanity Unit",
+              Furniture: "High-End Bed, High-End Mattress, High-End Side Table, High-End Crockery Unit, High-End Dining Table + Chairs",
+             Services: "High-End False Ceiling, High-End Wallpaper, High-End Curtains, High-End Painting, High-End Pooja Unit, High-End Wooden Flooring, High-End Tiling, High-End Shower Cubicle" ,
+              Packages : "Luxe" ,
+            })
+            setSecond({
+              price: "₹18.77L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit",
+              Furniture: "Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs",
+              Services: "Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle",
+              Packages : "Essentials"
+            })
+            setThird({
+              price: "₹22.31L*",
+              Type: "5 BHK",
+              Modular: "Modular Kitchen (BMR Plywood, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Sliding, MDF Material, Membrane finish, Basic Accessories), Mid-Range Vanity Unit",
+              Furniture: "Mid-Range Bed, Mid-Range Mattress, Mid-Range Side Table, Mid-Range Crockery Unit, Mid-Range Dining Table + Chairs",
+              Services: "Mid-Range False Ceiling, Mid-Range Wallpaper, Mid-Range Curtains, Mid-Range Painting, Mid-Range Pooja Unit, Mid-Range Wooden Flooring, Mid-Range Tiling, Mid-Range Shower Cubicle" ,
+              Packages : "Premium"
+            })
+           }
+        }
         console.log('Form data successfully submitted to the backend');
        
       } else {
@@ -233,81 +993,81 @@ useEffect(() => {
    
 
           <Flex   align="center" justify="center"   flexDirection='column'    minH='100vh'       >
-           <Box  width={isBelow720px ? '90%' : '65%' }   justify = 'center' align='center' mb='2rem'   >  
-          <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='100px'    >
-  
-  <Flex
-        ref={circle1Ref}
-        align="center"
-        justify="center"
-        width= '1.5rem'
-        height="1.5rem"
-        borderRadius="50%"
-        borderWidth="2px"
-        borderColor='black'
-        bgColor={index >= 1 ? "black" : "white"}
-        boxSizing="border-box"
-       
-     
-        >
-             <CheckIcon  color='white' />
+           <Box  width={isBelow720px ? '90%' : '65%' }   justify = 'center' align='center' mb='2rem'    >  
+                      {index !== 4 && (
+                        <>
+                <Box justify='center' align='center' justifyContent='space-between' display='flex' height='29px' width={isBelow720px ? '90%' : '45%'} marginTop='100px' >
+                    <Flex
+                        ref={circle1Ref}
+                        align="center"
+                        justify="center"
+                        width='1.5rem'
+                        height="1.5rem"
+                        borderRadius="50%"
+                        borderWidth="2px"
+                        borderColor='black'
+                        bgColor={index >= 1 ? "black" : "white"}
+                        boxSizing="border-box"
+                    >
+                        <CheckIcon color='white' />
+                    </Flex>
+
+                    <Flex
+                        align="center"
+                        justify="center"
+                        width='1.5rem'
+                        height="1.5rem"
+                        borderRadius="50%"
+                        borderWidth="2px"
+                        borderColor='black'
+                        bgColor={index >= 2 ? "black" : "white"}
+                        boxSizing="border-box"
+                    >
+                        <CheckIcon color='white' />
+                    </Flex>
+
+                    <Flex
+                        align="center"
+                        justify="center"
+                        width='1.5rem'
+                        height="1.5rem"
+                        borderRadius="50%"
+                        borderWidth="2px"
+                        borderColor='black'
+                        bgColor={index >= 3 ? "black" : "white"}
+                        boxSizing="border-box"
+                    >
+                        <CheckIcon color='white' />
+                    </Flex>
+
+                    <Flex
+                        ref={circle2Ref}
+                        align="center"
+                        justify="center"
+                        width='1.5rem'
+                        height="1.5rem"
+                        borderRadius="50%"
+                        borderWidth="2px"
+                        borderColor='black'
+                        bgColor={index >= 4 ? "black" : "white"}
+                        boxSizing="border-box"
+                    >
+                        <CheckIcon color='white' />
+                        <Box borderWidth='1px' position='absolute' style={{ marginLeft: `-${distance}px`, width: `${distance}px` }} borderColor='grey' zIndex='-1'>
+                        </Box>
+                    </Flex>
+
+                </Box>
+                <Box w={`${distance + 50}px`} justifyContent='space-between' display='flex' mt='.5rem'>
+                    <Text fontSize={['.6rem']}>BHK TYPE</Text>
+                    <Text fontSize={['.6rem']}>ROOMS TO DESIGN</Text>
+                    <Text fontSize={['.6rem']}>PACKAGE</Text>
+                    <Text fontSize={['.6rem']}>GET QUOTE</Text>
+                </Box>
+                </>
+            )}
+
           
-        </Flex>
-      
-        <Flex
-        
-        align="center"
-        justify="center"
-        width= '1.5rem'
-        height="1.5rem"
-        borderRadius="50%"
-        borderWidth="2px"
-        borderColor='black'
-        bgColor={index >=2 ? "black" : "white"}
-        boxSizing="border-box"
-     
-        >
-        <CheckIcon  color='white' />
-        </Flex>
-        <Flex
-        
-        align="center"
-        justify="center"
-        width= '1.5rem'
-        height="1.5rem"
-        borderRadius="50%"
-        borderWidth="2px"
-        borderColor='black'
-        bgColor={index >=3 ? "black" : "white"}
-        boxSizing="border-box"
-      
-        >
-           <CheckIcon  color='white' />
-        </Flex>
-        <Flex
-         ref={circle2Ref}
-        align="center"
-        justify="center"
-        width= '1.5rem'
-        height="1.5rem"
-        borderRadius="50%"
-        borderWidth="2px"
-        borderColor='black'
-        bgColor={index >=4 ? "black" : "white"}
-        boxSizing="border-box"
-    
-        >
-                  <CheckIcon  color='white' />
-                   <Box  borderWidth='1px' position='absolute'       style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >              
-                  </Box>
-        </Flex>
-        </Box    >
-        <Box   w={`${distance+50}px`} justifyContent='space-between' display='flex' mt='.5rem'  >
-          <Text fontSize={['.6rem']} >BHK TYPE</Text>
-          <Text fontSize={['.6rem']} >ROOMS TO DESIGN</Text>
-          <Text fontSize={['.6rem']} >PACKAGE</Text>
-          <Text fontSize={['.6rem']} >GET QUOTE</Text>
-        </Box>
 
              { index=== 0 &&  ( 
               <Card width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'60%'  ]}     justifyContent='center'  alignItems='center'   marginTop='50px'   boxShadow='0 0 10px rgba(0, 0, 0, 0.2)'  >
@@ -476,7 +1236,7 @@ useEffect(() => {
                   <Box  justifyContent='center'  alignItems='center'  mt='2rem'   boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" >
                        <Box justifyContent='center' alignItems='center' flexDirection='column'    >
                           <Text  fontWeight='500px' fontSize= '25px'  fontFamily='Georgia, serif' >Select the rooms you’d like us to design</Text>
-                          <Text  fontWeight='400px' fontSize= '20px'fontFamily='Georgia, serif'  >To know more about this, <Link href='#' >click here</Link></Text>
+                          {/* <Text  fontWeight='400px' fontSize= '20px'fontFamily='Georgia, serif'  >To know more about this, <Link href='#' >click here</Link></Text> */}
                        </Box>
                        <Box   mt='50px'   >
                            <VStack  spacing='15px' >
@@ -748,7 +1508,7 @@ useEffect(() => {
                                   
                        <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
                   <Box   width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button  mb='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button  mb='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonPrevClick}  >Back</Button>
                       <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick}>Next</Button>
                   </Box>                
                          
@@ -868,7 +1628,7 @@ useEffect(() => {
                       </Box>
                       <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
                     <Box  width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button mb='2rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button mb='2rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonPrevClick} >Back</Button>
                       <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick}>Next</Button>
                   </Box>      
                   </Box>
@@ -941,20 +1701,20 @@ useEffect(() => {
                      </Box>
                      <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
                     <Box  width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button  mb='1rem'  bgColor=  '#eb595f'   color='white'    _hover={{bgColor : '#eb595f'}}  onClick={handleSubmit}>Back</Button>
+                      <Button  mb='1rem'  bgColor=  '#eb595f'   color='white'    _hover={{bgColor : '#eb595f'}}   onClick={handleButtonPrevClick}>Back</Button>
                       <Button    bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}    type='submit'    onClick={handleSubmit}>Get My Estimate</Button>
                   </Box>   
                   </Box>
              )}
 
              { index === 4 && (
-                   <Box>
-                        <Box width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    pt='2rem' pb='1rem'  >  
+                   <Box mt='2rem'   >
+                        <Box width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    pt='2rem' pb='1rem'  >  
                              <Image
                                width='80%'
                                src = {quizinterior}
                              />
-                             <Box width='75%' >
+                             <Box  width={["90%" , "90%" , "90%" , "75%" , "75%"]} >
                                   <Text  fontSize='1.5rem'  fontWeight='400' fontFamily='Georgia, serif' >
                                   Here's your estimate! Sounds like the start of a lovely home.
                                   </Text>
@@ -963,12 +1723,12 @@ useEffect(() => {
                                   </Text>
                              </Box>
                         </Box>
-                        <Box  width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
-                             <Box  pt='2rem' pb='1rem'  >   
+                        <Box  width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
+                             <Box  pt='2rem' pb='1rem'   >   
                                <Text fontFamily='Georgia, serif' >
                                   Your estimated home interiors cost for
                                </Text>
-                               <Box width='80%' >
+                               <Box width={["90%" , "90%" , "90%" , "75%" , "75%"]}   >
                                   <VStack>
                                       <Image
                                         src= {essentials}
@@ -976,10 +1736,10 @@ useEffect(() => {
                                       />
                                       <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
                                           <GridItem textAlign='left' >
-                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         <Text  fontFamily='Georgia, serif' >{first.Packages}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         <Text color='green' fontWeight='500'  >{first.price}</Text>
                                          </GridItem>
                                       </Grid>
                                       <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
@@ -992,7 +1752,7 @@ useEffect(() => {
                                           <Text  fontFamily='Georgia, serif' >Type</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         <Text    fontFamily='Georgia, serif' >{first.Type}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  fontFamily='Georgia, serif' >Rooms</Text>
@@ -1005,7 +1765,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'   fontFamily='Georgia, serif' >
-                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                            {first.Modular}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1015,7 +1775,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'     fontFamily='Georgia, serif' >
-                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                         {first.Furniture}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1026,7 +1786,7 @@ useEffect(() => {
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'    fontFamily='Georgia, serif' >
                                         
-                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                         {first.Services}
                                         </Text>
                                          </GridItem>
                                       </Grid>
@@ -1035,30 +1795,30 @@ useEffect(() => {
                              </Box>
                             
                         </Box>
-                        <Box width='75%' textAlign='left'  >
-                                     <Text>
+                        <Box width={["100%" , "100%" , "100%" , "75%" , "75%"]} textAlign='left' mt='2rem'  marginBottom='2rem'  >
+                                     <Text fontSize='1rem'  fontFamily='Georgia, serif' >
                                      *This is only an indicative price based on our clients' average spends. The final price can be higher or lower depending on factors like finish material, number of furniture, civil work required (painting, flooring, plumbing, etc.), design elements, and wood type. Don't worry, our designers can help you understand this better.
                                      </Text>
                          </Box>
-                         <Box  borderWidth='1px'  mt='1rem'  mb='1rem'  width='75%'  ></Box>
-                         <Box width='75%' >
-                            <Text  fontFamily='Georgia, serif' >
+                         <Box  borderWidth='1px'  mt='1rem'  mb='1rem' width={["100%" , "100%" , "100%" , "75%" , "75%"]}  ></Box>
+                         <Box width={["90%" , "90%" , "90%" , "75%" , "75%"]}   >
+                            <Text  fontSize='2rem'  fontFamily='Georgia, serif' >
                             Compare the pricing with other packages
                             </Text>
                          </Box>
 
-                         <Box width='80%'  mb='2rem'  >
-                                  <VStack>
+                         <Box width={["100%" , "100%" , "100%" , "75%" , "75%"]} boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  marginTop='2rem'   >
+                                  <VStack  width={["90%" , "90%" , "90%" , "75%" , "75%"]} paddingTop='2rem'  >
                                       <Image
                                         src= {essentials}
                                         rounded={"lg"}
                                       />
                                       <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
                                           <GridItem textAlign='left' >
-                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         <Text  fontFamily='Georgia, serif' >{second.Packages}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         <Text color='green' fontWeight='500'  >{second.price}</Text>
                                          </GridItem>
                                       </Grid>
                                       <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
@@ -1071,7 +1831,7 @@ useEffect(() => {
                                           <Text  fontFamily='Georgia, serif' >Type</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         <Text    fontFamily='Georgia, serif' >{second.Type}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  fontFamily='Georgia, serif' >Rooms</Text>
@@ -1084,7 +1844,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'   fontFamily='Georgia, serif' >
-                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                                  {second.Modular}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1094,7 +1854,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'     fontFamily='Georgia, serif' >
-                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                         {second.Furniture}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1104,25 +1864,24 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'    fontFamily='Georgia, serif' >
-                                        
-                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                           {second.Services}
                                         </Text>
                                          </GridItem>
                                       </Grid>
                                   </VStack>
                                </Box>
-                               <Box width='80%' >
-                                  <VStack>
+                               <Box width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" mt='2rem'  >
+                                  <VStack width={["90%" , "90%" , "90%" , "75%" , "75%"]} >
                                       <Image
                                         src= {essentials}
                                         rounded={"lg"}
                                       />
                                       <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
                                           <GridItem textAlign='left' >
-                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         <Text  fontFamily='Georgia, serif' >{third.Packages}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         <Text color='green' fontWeight='500'  >{third.price}</Text>
                                          </GridItem>
                                       </Grid>
                                       <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
@@ -1135,7 +1894,7 @@ useEffect(() => {
                                           <Text  fontFamily='Georgia, serif' >Type</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
-                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         <Text    fontFamily='Georgia, serif' >{third.Type}</Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  fontFamily='Georgia, serif' >Rooms</Text>
@@ -1148,7 +1907,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'   fontFamily='Georgia, serif' >
-                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                            {third.Modular}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1158,7 +1917,7 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'     fontFamily='Georgia, serif' >
-                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                           {third.Furniture}
                                         </Text>
                                          </GridItem>
                                          <GridItem textAlign='left' >
@@ -1168,8 +1927,9 @@ useEffect(() => {
                                          </GridItem>
                                          <GridItem textAlign='left' >
                                          <Text  textAlign='left'    fontFamily='Georgia, serif' >
-                                        
-                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                          {third.Services
+                                          }
+                                           
                                         </Text>
                                          </GridItem>
                                       </Grid>
