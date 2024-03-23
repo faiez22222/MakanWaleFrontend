@@ -268,7 +268,7 @@ useEffect(() => {
       <chakra.label {...htmlProps} cursor='pointer'>
         <input {...getInputProps({})} hidden />
         <Box
-          width={["290px" , "320px"]}
+          width={["290px" , "360px"]}
           {...getRadioProps()}
           borderWidth='2px'
           borderColor={state.isChecked ? '#eb595f' : 'lightgrey'}
@@ -279,12 +279,14 @@ useEffect(() => {
 
         >
           <VStack  >
-               <HStack   alignItems="flex-start"  spacing='10px'   >
-                  <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='5px'  borderRadius='50%'  height='20px' width='20px'  marginTop='5px'     ></Flex>
-                  <Box display='block' textAlign='left'   >
+               <HStack   alignItems="flex-start"  spacing='1rem'     >
+                <Box width='10%'  >
+                  <Flex   borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='.2rem'  borderRadius='50%'  height='1.3rem' width='1.3rem'  marginTop='5px'     ></Flex>
+                </Box>
+                  <Flex display='block' textAlign='left'   >
                        <Text fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >{Heading}</Text>
                        <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >{Subheading}</Text>
-                  </Box>
+                  </Flex>
                </HStack>
           
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()} />
@@ -315,7 +317,7 @@ useEffect(() => {
       <chakra.label {...htmlProps} cursor='pointer'>
         <input {...getInputProps({})} hidden />
         <Box
-          width={["290px" , "320px"]}
+          width={["290px" , "320px" , "360px"]}
           {...getRadioProps()}
           borderWidth='2px'
           borderColor={state.isChecked ? '#eb595f' : 'lightgrey'}
@@ -327,22 +329,24 @@ useEffect(() => {
         >
           <VStack  >
                <HStack   alignItems="flex-start"  spacing='10px'   >
+                 <Box width='10%' >
                   <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='5px'  borderRadius='50%'  height='20px' width='20px'  marginTop='5px'     ></Flex>
+                  </Box>
                   <Box display='block' textAlign='left'   >
-                       <Text fontSize='1rem' >{Heading}</Text>
-                       <Text fontSize='0.9rem' >{Subheading}</Text>
+                       <Text fontSize='1rem'  fontFamily='Georgia, serif' >{Heading}</Text>
+                       <Text fontSize='0.9rem' fontFamily='Georgia, serif' >{Subheading}</Text>
                   </Box>
                </HStack>
           
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()} />
          
              <HStack  width='90%'  spacing='60px'  >
-                <Text fontSize='0.9rem' >Price</Text>
-                <Text fontSize='0.9rem' >:&nbsp;{Price}</Text>
+                <Text fontSize='0.9rem'  fontFamily='Georgia, serif' >Price</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >:&nbsp;{Price}</Text>
              </HStack>
              <HStack   alignItems="flex-start"  width='90%'  spacing='50px'  >
-                <Text fontSize='0.9rem' >ProTip</Text>
-                <Text fontSize='0.9rem' >:&nbsp;{ProTip}</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >ProTip</Text>
+                <Text fontSize='0.9rem'  fontFamily='Georgia, serif' >:&nbsp;{ProTip}</Text>
              </HStack>
           </VStack>
          
@@ -361,7 +365,7 @@ useEffect(() => {
       <chakra.label {...htmlProps} cursor='pointer'>
         <input {...getInputProps({})} hidden />
         <Box
-          width={["290px" , "320px"]}
+          width={["290px" , "320px" , "360px"]}
           {...getRadioProps()}
           borderWidth='2px'
           borderColor={state.isChecked ? '#eb595f' : 'lightgrey'}
@@ -373,22 +377,24 @@ useEffect(() => {
         >
           <VStack  >
                <HStack   alignItems="flex-start"  spacing='10px'   >
+                 <Box width='10%' >
                   <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='5px'  borderRadius='50%'  height='20px' width='20px'  marginTop='5px'     ></Flex>
+                  </Box>
                   <Box display='block' textAlign='left'   >
-                       <Text fontSize='1rem' >{Heading}</Text>
-                       <Text fontSize='0.9rem' >{Subheading}</Text>
+                       <Text fontSize='1rem' fontFamily='Georgia, serif' >{Heading}</Text>
+                       <Text fontSize='0.9rem' fontFamily='Georgia, serif' >{Subheading}</Text>
                   </Box>
                </HStack>
           
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()} />
          
              <HStack  width='90%'  spacing='60px'  >
-                <Text fontSize='0.9rem' >Price</Text>
-                <Text fontSize='0.9rem' >:&nbsp;{Price}</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >Price</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >:&nbsp;{Price}</Text>
              </HStack>
              <HStack   alignItems="flex-start"  width='90%'  spacing='50px'  >
-                <Text fontSize='0.9rem' >ProTip</Text>
-                <Text fontSize='0.9rem' >:&nbsp;{ProTip}</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >ProTip</Text>
+                <Text fontSize='0.9rem' fontFamily='Georgia, serif'  >:&nbsp;{ProTip}</Text>
              </HStack>
           </VStack>
          
@@ -653,7 +659,7 @@ useEffect(() => {
    
 
           <Flex    align="center" justify="center"     minH='100vh'   flexDirection='column'     >
-           <Box  width={isBelow720px ? '90%' : '75%' }   justify = 'center' align='center'  mb='2rem'  >  
+           <Box  width={isBelow720px ? '90%' : '65%' }   justify = 'center' align='center'  mb='2rem'  >  
           <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='100px'   >
   
         <Flex
@@ -834,7 +840,7 @@ useEffect(() => {
                   </Box>
              )}
              { index=== 2 &&  ( 
-                  <Box         flexDirection='column'     marginTop='50px'   boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
+                  <Box         flexDirection='column'     marginTop='50px'   paddingBottom='2rem'  marginBottom='2rem'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
                        <Box paddingTop='2rem'    marginBottom='2rem' >
                           <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >Pick your package</Text>
                        </Box>
@@ -979,14 +985,14 @@ useEffect(() => {
              )}
 
             { index=== 4 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '95%'  , '60%'  ,'75%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
+              <Box width=  {["100%" ,  "100%", "100%" , '95%'  , '60%'  ,'75%'  ]}       marginTop='50px'   paddingBottom='2rem'  marginBottom='2rem'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
                     <Box  pt='1.5rem' marginBottom='1.5rem'  >
                        <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >
                          Materials for cabinets and shutters. Take your pick.
                        </Text>
-                       <Text fontSize='1rem' >
+                       {/* <Text fontSize='1rem' >
                        Want to know more. Check here
-                       </Text>
+                       </Text> */}
                     </Box>
                     <Box  display='block' >
                     {avatars2.map((avatar, index) => {
@@ -1014,7 +1020,7 @@ useEffect(() => {
                   
              )}
               { index=== 5 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'    >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}     paddingBottom='2rem'  marginBottom='2rem'    marginTop='50px'    >
                   <Box 
                     padding='30px' 
                     width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "100%" ]}  
@@ -1055,7 +1061,7 @@ useEffect(() => {
              )}
 
 { index=== 6 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'    >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}    paddingBottom='2rem'  marginBottom='2rem'    marginTop='50px'    >
                   <Box 
                     padding='30px' 
                     width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "100%" ]}  
@@ -1096,7 +1102,7 @@ useEffect(() => {
              )}
 
 { index=== 7 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}  paddingBottom='2rem'  marginBottom='2rem'      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
                     <Box paddingTop='1.5rem' mb='2rem'  >
                        <Text fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >Pick a finish for base & wall cabinets</Text>
                     </Box>
@@ -1127,7 +1133,7 @@ useEffect(() => {
              )}
 
 { index=== 8 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'   paddingBottom='2rem'  marginBottom='2rem'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
                    <Box paddingTop='1.5rem' mb='2rem' >
                      <Text fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >
                        Now choose the accessories for your kitchen.
@@ -1160,7 +1166,7 @@ useEffect(() => {
              )}
 
 { index=== 9 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '80%'  ,'80%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center' boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '80%'  ,'80%'  ]}   paddingBottom='2rem'  marginBottom='2rem'     marginTop='50px'   justifyContent='center'  alignItems='center' boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
                   
                   <Box paddingTop='1.5rem' mb='2rem' >
                      <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >
@@ -1186,14 +1192,14 @@ useEffect(() => {
                   </SimpleGrid>
                   <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
                   <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='50px'   >
-                      <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
+                      <Button  ml='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button  mr='1rem'  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
                   </Box>   
                   </Box>
                   
              )}
              { index=== 10 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '90%'  , '95%'  ,'80%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
+              <Box width=  {["100%" ,  "100%", "100%" , '90%'  , '95%'  ,'80%'  ]}     paddingBottom='2rem'  marginBottom='2rem'   marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
                   <Box paddingTop='1.5rem' mb='2rem' >
                      <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >
                      Here come the appliances. Your pick?
@@ -1216,15 +1222,15 @@ useEffect(() => {
                   </SimpleGrid>
                   <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
                   <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='50px'   >
-                      <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
+                      <Button  ml='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button  mr='1rem' bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
                   </Box>   
                   </Box>
                   
              )}
 
              { index=== 11 &&  ( 
-                  <Box alignItems='center' justifyContent='center'  flexDirection='column' marginTop='20px'   boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
+                  <Box alignItems='center' justifyContent='center'  flexDirection='column' marginTop='20px'   paddingBottom='2rem'  marginBottom='2rem'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
                      <Box paddingTop='1.5rem' mb='2rem' >
                         <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >Your estimate is almost ready</Text>
                      </Box>
@@ -1281,7 +1287,7 @@ useEffect(() => {
                        </VStack>
                     </FormControl>
                      </Box>
-                     <Box display='block' alignContent='space-between'    w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
+                     <Box display='block' alignContent='space-between'    w = {[ "90%" , "90%" , "90%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
                        <Text>
                           By submitting this form, you agree to the <Link    style={{ textDecoration: 'none', color: 'red' }} >privacy policy</Link> & <Link style={{ textDecoration: 'none', color: 'red' }}  >terms and conditions</Link>
                        </Text>
@@ -1291,20 +1297,20 @@ useEffect(() => {
                      </Box>
                      <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
                     <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button   bgColor=  '#eb595f'   color='white'    _hover={{bgColor : '#eb595f'}}  onClick={handleSubmit}>Back</Button>
-                      <Button    bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}    type='submit'    onClick={handleSubmit}>Get My Estimate</Button>
+                      <Button ml='1rem'  bgColor=  '#eb595f'   color='white'    _hover={{bgColor : '#eb595f'}}  onClick={handleSubmit}>Back</Button>
+                      <Button  mr='1rem'  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}    type='submit'    onClick={handleSubmit}>Get My Estimate</Button>
                   </Box>   
                   </Box>
              )}
 
 { index === 12 && (
-                   <Box>
-                        <Box width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    pt='2rem' pb='1rem'  >  
+                   <Box mt='2rem' >
+                        <Box  width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    pt='2rem' pb='1rem'  >  
                              <Image
                                width='80%'
                                src = {quizinterior}
                              />
-                             <Box width='75%' >
+                             <Box width={["90%" , "90%" , "90%" , "75%" , "75%"]} >
                                   <Text  fontSize='1.5rem'  fontWeight='400' fontFamily='Georgia, serif' >
                                   Here's your estimate! Sounds like the start of a lovely home.
                                   </Text>
@@ -1313,12 +1319,12 @@ useEffect(() => {
                                   </Text>
                              </Box>
                         </Box>
-                        <Box  width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
+                        <Box  width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
                              <Box  pt='2rem' pb='1rem'  >   
                                <Text fontFamily='Georgia, serif' >
                                   Your estimated home interiors cost for
                                </Text>
-                               <Box width='80%' >
+                               <Box  width={["90%" , "90%" , "90%" , "75%" , "75%"]} >
                                   <VStack>
                                       <Image
                                         src= {essentials}
@@ -1385,20 +1391,20 @@ useEffect(() => {
                              </Box>
                             
                         </Box>
-                        <Box width='75%' textAlign='left'  >
+                        <Box width={["100%" , "100%" , "100%" , "75%" , "75%"]} textAlign='left'  >
                                      <Text>
                                      *This is only an indicative price based on our clients' average spends. The final price can be higher or lower depending on factors like finish material, number of furniture, civil work required (painting, flooring, plumbing, etc.), design elements, and wood type. Don't worry, our designers can help you understand this better.
                                      </Text>
                          </Box>
-                         <Box  borderWidth='1px'  mt='1rem'  mb='1rem'  width='75%'  ></Box>
-                         <Box width='75%' >
+                         <Box  borderWidth='1px'  mt='1rem'  mb='1rem'  width={["100%" , "100%" , "100%" , "75%" , "75%"]}  ></Box>
+                         <Box  width={["90%" , "90%" , "90%" , "75%" , "75%"]}  >
                             <Text  fontFamily='Georgia, serif' >
                             Compare the pricing with other packages
                             </Text>
                          </Box>
 
-                         <Box width='80%'  mb='2rem'  >
-                                  <VStack>
+                         <Box  width={["100%" , "100%" , "100%" , "75%" , "75%"]} boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  marginTop='2rem'   >
+                                  <VStack width={["90%" , "90%" , "90%" , "75%" , "75%"]} paddingTop='2rem' >
                                       <Image
                                         src= {essentials}
                                         rounded={"lg"}
@@ -1461,8 +1467,8 @@ useEffect(() => {
                                       </Grid>
                                   </VStack>
                                </Box>
-                               <Box width='80%' >
-                                  <VStack>
+                               <Box  width={["100%" , "100%" , "100%" , "75%" , "75%"]}  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" mt='2rem'  pt='2rem'   >
+                                  <VStack  width={["90%" , "90%" , "90%" , "75%" , "75%"]}  >
                                       <Image
                                         src= {essentials}
                                         rounded={"lg"}

@@ -1691,7 +1691,7 @@ useEffect(() => {
                        </VStack>
                     </FormControl>
                      </Box>
-                     <Box display='block' alignContent='space-between'    w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
+                     <Box display='block' alignContent='space-between'    w = {[ "90%" , "90%" , "90%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
                        <Text>
                           By submitting this form, you agree to the <Link    style={{ textDecoration: 'none', color: 'red' }} >privacy policy</Link> & <Link style={{ textDecoration: 'none', color: 'red' }}  >terms and conditions</Link>
                        </Text>

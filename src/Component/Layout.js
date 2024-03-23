@@ -1098,7 +1098,7 @@ const colors = [
               { !isBelow720px && (
                  <Td fontSize='40px'  lineHeight='1.1'  fontFamily='serif' fontStyle='normal'    bgColor='#f2f2f2' color='black'><Text>Client Satisfaction</Text></Td>
               )}
-              <Td    bgColor='#f2f2f2' color='black'>
+              <Td    bgColor='#ffffff' color='black'>
                 <UnorderedList>
                   <ListItem>
                   <Text lineHeight='1.1' fontSize =  {["20px","20px","20px","20px","20px","20px","20px"]}   fontFamily='sans-serif' fontStyle='normal' >With the ability to adjust project details as needed, Clients are more likely to be satisfied with the final result.</Text>
@@ -1119,7 +1119,7 @@ const colors = [
                   <Td   fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Transparency</Td>
               )}
               
-              <Td   bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#ffffff' color='black'>
                 <UnorderedList>
                   <ListItem>
                   <Text lineHeight='1.1' fontSize =  {["20px","20px","20px","20px","20px","20px","20px"]}   fontFamily='sans-serif' fontStyle='normal' > Cost-plus contracts provide transparent pricing with full client visibility into project costs, including materials, labor, contractor fee, and design costs. Detailed cost breakdowns ensure transparency, allowing informed decisions without surprises or hidden expenses.</Text>
@@ -1199,7 +1199,7 @@ const colors = [
               { !isBelow720px && (
                   <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black' lineHeight='1.1' >Value Engineering</Td>
               )}
-              <Td  bgColor='#f2f2f2' color='black'>
+              <Td bgColor='#ffffff' color='black'>
                 <UnorderedList>
                   <ListItem>
                   <Text lineHeight='1.1' fontSize =  {["20px","20px","20px","20px","20px","20px","20px"]}   fontFamily='sans-serif' fontStyle='normal' > In cost-plus, contractors are free from the constraints of a fixed budget, fostering a willingness to propose innovative ideas. Unlike fixed-price contracts, this approach allows for greater flexibility and encourages creative solutions. The absence of budget restrictions enables a more dynamic and open approach to project execution.</Text> 
@@ -1226,7 +1226,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td  bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#ffffff' color='black'>
                 <UnorderedList>
                   <ListItem>
                     <Text lineHeight='1.1' fontSize =  {["20px","20px","20px","20px","20px","20px","20px"]}   fontFamily='sans-serif' fontStyle='normal' >With the constraint of cost minimization, contractors may struggle to strategically allocate skilled manpower, compromising the prioritization of high-quality work. This could impact the overall project quality by limiting the focus on expertise and professionalism.</Text>

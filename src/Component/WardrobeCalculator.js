@@ -293,17 +293,19 @@ useEffect(() => {
         >
           <VStack  >
                <HStack   alignItems="flex-start"  spacing='10px'   >
-                  <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='.2rem'  borderRadius='50%'  height='1rem' width='1rem'  marginTop='5px'     ></Flex>
+                   <Box width='10%' >
+                  <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='.2rem'  borderRadius='50%'  height='1.2rem' width='1.2rem'  marginTop='5px'     ></Flex>
+                  </Box>
                   <Box display='block' textAlign='left'   >
-                       <Text fontSize='1rem' >{Heading}</Text>
-                       <Text fontSize='0.9rem' >{Subheading}</Text>
+                       <Text fontFamily='Georgia, serif'  fontSize='1rem' >{Heading}</Text>
+                       <Text  fontFamily='Georgia, serif' fontSize='0.9rem' >{Subheading}</Text>
                   </Box>
                </HStack>
           
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()} />
          
              <HStack   alignItems="flex-start"  width='90%'  spacing='50px'  >
-                <Text fontSize='0.9rem' >{ProTip}</Text>
+                <Text  fontFamily='Georgia, serif' fontSize='0.9rem' >{ProTip}</Text>
              </HStack>
           </VStack>
          
@@ -345,13 +347,13 @@ useEffect(() => {
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()}   />
          
              <HStack   alignItems="flex-start"   width='100%'    >
-                <Text fontSize='0.9rem' >Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
-                <Text fontSize='0.9rem' >{Price}</Text>
+                <Text  fontFamily='Georgia, serif' fontSize='0.9rem' >Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
+                <Text fontFamily='Georgia, serif'  fontSize='0.9rem' >{Price}</Text>
              </HStack>
              <HStack   alignItems="flex-start"       >
-                <Text fontSize='0.9rem' >ProTip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
+                <Text fontFamily='Georgia, serif'  fontSize='0.9rem' >ProTip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
                 <Box>
-                <Text  textAlign='left' fontSize='0.9rem' >{ProTip}</Text>
+                <Text  fontFamily='Georgia, serif'  textAlign='left' fontSize='0.9rem' >{ProTip}</Text>
                 </Box>
              </HStack>
           </VStack>
@@ -385,7 +387,7 @@ useEffect(() => {
                <HStack   alignItems="flex-start"    spacing='10px'   width='100%'  >
                   <Flex     borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} borderWidth='5px'  borderRadius='50%'  height='20px' width='20px'  marginTop='5px'     ></Flex>
                   <Box display='block' textAlign='left'   >
-                       <Text fontSize='1rem' >{Heading}</Text>
+                       <Text fontFamily='Georgia, serif' fontSize='1rem' >{Heading}</Text>
                        {/* <Text fontSize='0.9rem' >{Subheading}</Text> */}
                   </Box>
                </HStack>
@@ -393,13 +395,13 @@ useEffect(() => {
           <Image src={image}  borderRadius='5px'   width='90%'  height='200px'  {...getLabelProps()}   />
          
              <HStack   alignItems="flex-start"   width='100%'    >
-                <Text fontSize='0.9rem' >Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
-                <Text fontSize='0.9rem' >{Price}</Text>
+                <Text fontFamily='Georgia, serif' fontSize='0.9rem' >Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
+                <Text fontFamily='Georgia, serif' fontSize='0.9rem' >{Price}</Text>
              </HStack>
              <HStack   alignItems="flex-start"       >
-                <Text fontSize='0.9rem' >ProTip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
+                <Text fontFamily='Georgia, serif' fontSize='0.9rem' >ProTip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</Text>
                 <Box>
-                <Text  textAlign='left' fontSize='0.9rem' >{ProTip}</Text>
+                <Text fontFamily='Georgia, serif'  textAlign='left' fontSize='0.9rem' >{ProTip}</Text>
                 </Box>
              </HStack>
           </VStack>
@@ -1292,7 +1294,7 @@ useEffect(() => {
                        </VStack>
                     </FormControl>
                      </Box>
-                     <Box display='block' alignContent='space-between'    w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
+                     <Box display='block' alignContent='space-between'    w = {[ "90%" , "90%" , "90%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
                        <Text>
                           By submitting this form, you agree to the <Link    style={{ textDecoration: 'none', color: 'red' }} >privacy policy</Link> & <Link style={{ textDecoration: 'none', color: 'red' }}  >terms and conditions</Link>
                        </Text>
