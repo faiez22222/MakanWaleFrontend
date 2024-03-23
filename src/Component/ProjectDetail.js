@@ -205,7 +205,7 @@ const ProjectsDetail = () => {
                                                        <Image
                                                            boxSize='100%'
                                                            objectFit='cover'
-                                                           src= {`http://localhost:3001/${item}`} 
+                                                           src= {`https://web-production-0e28.up.railway.app/${item}`} 
                                                            alt='Dan Abramov'
                                                            borderRadius='2%'
                                                          />

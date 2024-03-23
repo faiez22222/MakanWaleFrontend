@@ -46,7 +46,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/formData');
+        const response = await axios.get('https://web-production-0e28.up.railway.app/api/formData');
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching form data:', error);
@@ -133,7 +133,7 @@ console.log("hey" ,  imageDataArray)
                                                 width={['49.5%']}
                                                 height='430px'
                                                 objectFit='cover'
-                                                src= {`http://localhost:3001/${item.image1}`} 
+                                                src= {`https://web-production-0e28.up.railway.app/${item.image1}`} 
                                                 alt='Dan Abramov'
                                                 borderRadius='2%'
                                         />
@@ -141,7 +141,7 @@ console.log("hey" ,  imageDataArray)
                                                 width={['49.5%']}
                                                 height='430px'
                                                 objectFit='cover'
-                                                src= {`http://localhost:3001/${item.image2}`} 
+                                                src= {`https://web-production-0e28.up.railway.app/${item.image2}`} 
                                                 alt='Dan Abramov'
                                                 borderRadius='2%'
                                         />

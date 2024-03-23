@@ -93,7 +93,7 @@ const Contact_us = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:3001/api/contact/submit-form', {
+      const response = await fetch('https://web-production-0e28.up.railway.app/api/contact/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

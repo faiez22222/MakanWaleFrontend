@@ -342,7 +342,7 @@ const colors = [
     }
   
     try {
-      const response = await fetch('http://localhost:3001/api/contact//submit-form-below-720', {
+      const response = await fetch('https://web-production-0e28.up.railway.app/api/contact//submit-form-below-720', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

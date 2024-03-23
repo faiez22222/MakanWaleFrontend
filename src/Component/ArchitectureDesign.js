@@ -45,6 +45,7 @@ const ArchitectureDesign = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://web-production-0e28.up.railway.app/api/Architecture/formData');
+        setFormData(response.data);
       } catch (error) {
         console.error('Error fetching form data:', error);
       }
@@ -61,7 +62,7 @@ const ArchitectureDesign = () => {
     // Create an absolute path and extract the filename
     const absolutePath = new URL(normalizedPath, window.location.origin);
     return absolutePath.pathname.split('/').pop();
-};
+}; 
 
 const imageDataArray = formData.map((data) => {
     // Extract the first value of imagePath1 and imagePath2
@@ -168,7 +169,7 @@ const imageDataArray = formData.map((data) => {
                                                     }}
                                                     onMouseEnter={() => setHovered(index)}
                                                     onMouseLeave={() => setHovered(null)}
-                                                    backgroundImage={`http://localhost:3001/${item.image}`}
+                                                    backgroundImage={`https://web-production-0e28.up.railway.app/${item.image}`}
                                                     height='300px'
                                                     width={['250px' ,"300px" ,"300px" ,"220px" ,'300px' ,"400px"]}
                                                     bgSize='cover'

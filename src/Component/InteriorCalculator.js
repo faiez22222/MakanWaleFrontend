@@ -210,7 +210,7 @@ useEffect(() => {
     console.log(formData)
   
     try {
-      const response = await fetch('http://localhost:3001/api/interior-calculator/submit-form', {
+      const response = await fetch('https://web-production-0e28.up.railway.app/api/interior-calculator/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
