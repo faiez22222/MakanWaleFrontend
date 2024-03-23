@@ -18,17 +18,18 @@ const Cost = () => {
 
   return (
     
-   <Flex  height="100vh"      width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']}  flexDirection='column'  justifyContent='center' display='block'  >
-    <Box  width='75%'       ml=  {['40px' , '45px' , '50px' , '65px' , '135px' , '175px' , '300px']}   mt='90px'  justify='center' align='center'  >
-    <Heading  >Cost Plus Model</Heading>
+   <Flex   flexDirection='column'   minH='100vh'   width='100vw'  justifyContent='center'  alignItems='center'  >
+    <Box  width='75%'        mt='90px'  justify='center' align='center'  >
+    <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif'  >Cost Plus Model</Text>
     </Box  >
-    <Box width='65%'      ml=  {['40px' , '45px' , '50px' , '65px' , '135px' , '280px' , '300px']}  mt='90px'  >
+    <Box width='75%'   justify='center' align='center' paddingBottom='2rem'
+         mt='90px'  >
     <Accordion allowToggle  borderColor='orange'  >
     <AccordionItem >
       <h2>
         <AccordionButton  >
           <Box as="span" flex='1' textAlign='left'>
-              <Text fontFamily='Poppins' fontSize='21px' fontWeight='600'    >Overview</Text>
+              <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif'    >Overview</Text>
           </Box>
           <AccordionIcon _hover={{color : 'orange'}}  />
         </AccordionButton>
@@ -187,7 +188,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-              <Text  fontFamily='Poppins' fontSize='21px' fontWeight='600'     >Overview</Text>
+              <Text  fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif'    >Overview</Text>
           </Box>
           <AccordionIcon   _hover={{color : 'orange'}} />
         </AccordionButton>
@@ -329,7 +330,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-              <Text fontFamily='Poppins' fontSize='21px' fontWeight='600'   >Overview</Text>
+              <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif'   >Overview</Text>
           </Box>
           <AccordionIcon />
         </AccordionButton>
@@ -470,7 +471,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-               <Text fontFamily='Poppins' fontSize='21px' fontWeight='600' >Overview</Text> 
+               <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif' >Overview</Text> 
           </Box>
           <AccordionIcon />
         </AccordionButton>
@@ -611,7 +612,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-               <Text fontFamily='Poppins' fontSize='21px' fontWeight='600' >Overview</Text>
+               <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif' >Overview</Text>
           </Box>
           <AccordionIcon _hover={{color : 'orange'}}  />
         </AccordionButton>
@@ -752,7 +753,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-              <Text fontSize='20px' fontFamily='serif' fontWeight='600'  > Overview</Text>
+              <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif'  > Overview</Text>
           </Box>
           <AccordionIcon  _hover={{color : 'orange'}} />
         </AccordionButton>
@@ -893,7 +894,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-             <Text fontSize='20px' fontFamily='serif' fontWeight='600' >Overview</Text> 
+             <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif' >Overview</Text> 
           </Box>
           <AccordionIcon _hover={{color : 'orange'}}  />
         </AccordionButton>
@@ -1034,7 +1035,7 @@ const Cost = () => {
       <h2>
         <AccordionButton>
           <Box as="span" flex='1' textAlign='left'>
-               <Text fontSize='20px' fontFamily='serif' fontWeight='600' >Overview</Text>
+               <Text fontWeight='800px' fontSize= '25px'  fontFamily='Georgia, serif' >Overview</Text>
           </Box>
           <AccordionIcon _hover={{color : 'orange'}}  />
         </AccordionButton>
@@ -1174,7 +1175,7 @@ const Cost = () => {
 
 </Accordion>
     </Box>
-    <Flex
+     <Flex
      alignItems="center"
      justifyContent="center"
      bgColor='#262626' 
