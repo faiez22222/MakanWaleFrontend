@@ -260,8 +260,8 @@ const Construction = () => {
                     </Box>
                 </Box>
                 </VStack>      
-                <VStack   spacing={0}  width={["100%" , "90%" , "100%" , "" , "100%" , "90%" , "80%" ]}  >
-                <Box bgColor='orangered'width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}   height='40px'  
+                <VStack   spacing={0} width={["100%" , "100%" , "100%" , "" , "100%" , "90%" , "80%" ]}  >
+                <Box bgColor='orangered' width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  height='40px'  
                    display='flex'
                    alignItems='center'
                    justifyContent='center'
@@ -269,13 +269,13 @@ const Construction = () => {
                  >
                    <Text fontWeight={700} fontSize='20px'  color='white'  >Platinum</Text> 
                 </Box>
-                <Box  width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}  >
+                <Box  width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  >
                 <Image 
                 src={platinum} alt='Dan Abramov' 
                 width='100%'
                 />
                 </Box>
-                <Box width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}  borderWidth='1px' borderColor='f9f9f9'height='380px'  >
+                <Box width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  borderWidth='1px' borderColor='f9f9f9'height='380px'  >
                   <Box height='300px' >
                 <Table variant='simple'>
                       <Thead>
